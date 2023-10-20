@@ -9,25 +9,28 @@ public class Main {
         var boek = leesEnSchrijf.leesBestand();
         var scanner = new Scanner(System.in);
         toonKeuzes();
-        var loop = true;
-        while (loop) {
-            System.out.print("Keuze?: ");
-            var antwoord = scanner.next();
+        // var loop = true;
+        System.out.print("Keuze?: ");
+        // while (loop) {
+        for (String antwoord; !(antwoord = scanner.next()).equalsIgnoreCase("E"); ) {
+            // var antwoord = scanner.next();
             switch (antwoord.toUpperCase()) {
                 case "S":
                     boek.addEntry(schrijfEntry());
                     leesEnSchrijf.schrijfBestand(boek);
                     break;
                 case "T":
-                    System.out.println(boek);;
+                    System.out.println(boek);
+                    ;
                     break;
-                case "E":
+                /* case "E":
                     loop = false;
-                    break;
+                    break; */
                 default:
                     System.out.println("Geen geldige keuze, probeer opnieuw.");
                     toonKeuzes();
             }
+            System.out.print("Keuze?: ");
         }
 
     }
